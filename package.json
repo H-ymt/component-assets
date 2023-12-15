@@ -1,0 +1,17 @@
+{
+  "name": "component-assets",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^4.0.5",
+    "prettier": "^3.1.1",
+    "prettier-plugin-astro": "^0.12.2"
+  }
+}
