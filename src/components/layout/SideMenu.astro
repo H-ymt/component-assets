@@ -2,9 +2,30 @@
 const currentPage = Astro.url.pathname;
 ---
 
-<nav>
-  <ul>
-    <li><a href="/hamburger-menu/">Hamburger Menu</a></li>
-    <li><a href="/accordion">Accordion</a></li>
+<nav class="sideNav">
+  <ul class="menuList">
+    <li>
+      <a class="menuList__link" href="/hamburger-menu/">Hamburger Menu</a>
+    </li>
+    <li><a class="menuList__link" href="/accordion">Accordion</a></li>
   </ul>
 </nav>
+
+<style>
+  .sideNav {
+    padding: 16px;
+  }
+
+  .menuList__link {
+    color: hsl(var(--muted-foreground));
+    text-decoration: none;
+  }
+
+  .menuList__link:hover {
+    text-decoration: underline;
+  }
+
+  .menuList__link.active {
+    color: hsl(var(--foreground));
+  }
+</style>
