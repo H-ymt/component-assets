@@ -63,3 +63,12 @@ h2 {
 li {
   list-style-type: none;
 }
+
+a {
+  display: block;
+  font-weight: 500;
+}
+
+a:visited {
+  color: inherit;
+}

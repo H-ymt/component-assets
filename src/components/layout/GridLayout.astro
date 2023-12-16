@@ -4,7 +4,14 @@
 
 <style>
   .container {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
+    padding: 0 32px;
+  }
+
+  @media screen and (min-width: 768px) {
+    .container {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 32px;
+    }
   }
 </style>

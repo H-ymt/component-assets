@@ -22,26 +22,28 @@ const { title, description } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <main>
-      <GridLayout>
-        <aside class="sideMenu">
-          <SideMenu />
-        </aside>
+    <GridLayout>
+      <aside class="sideMenu">
+        <SideMenu />
+      </aside>
 
-        <div class="mainContent">
-          <slot />
-        </div>
-      </GridLayout>
-    </main>
+      <main class="main">
+        <slot />
+      </main>
+    </GridLayout>
   </body>
 </html>
 
 <style>
   .sideMenu {
+    position: sticky;
     grid-area: 1 / 1 / auto / span 3;
+    top: 220px;
+    height: 100%;
   }
 
-  .mainContent {
+  .main {
     grid-area: 1 / span 4 / auto / auto;
+    padding: 24px 0;k
   }
 </style>
