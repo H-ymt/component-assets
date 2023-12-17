@@ -50,6 +50,7 @@
 
 html,
 body {
+  position: relative;
   min-height: 100vh;
   color: hsl(var(--muted-foreground));
   background-color: hsl(var(--background));

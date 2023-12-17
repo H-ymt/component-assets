@@ -1,5 +1,27 @@
-<nav>
-  <ul>
+<nav class="menu">
+  <ul class="list">
     <li><a href="/">Hamburger Menu</a></li>
   </ul>
 </nav>
+
+<style>
+  .menu {
+    position: absolute;
+    left: 50%;
+    width: min(100%, 400px);
+    padding: 10px;
+    bottom: 24px;
+    border-radius: var(--radius);
+    background-color: #333;
+    transform: translateX(-50%);
+  }
+
+  @media screen and (min-width: 768px) {
+    .menu {
+      display: none;
+    }
+  }
+
+  .list {
+  }
+</style>
