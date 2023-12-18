@@ -1,8 +1,18 @@
 <nav class="menu">
-  <ul class="list">
+  <button type="button" class="js-toggleButton">Open</button>
+  <ul class="menuList js-menuList">
     <li><a href="/">Hamburger Menu</a></li>
   </ul>
 </nav>
+
+<script>
+  const toggleButton = document.querySelector(".js-toggleButton");
+  const menuList = document.querySelector(".js-menuList");
+
+  toggleButton.addEventListener("click", () => {
+    menuList.classList.toggle("is-active");
+  });
+</script>
 
 <style>
   .menu {
@@ -11,7 +21,7 @@
     width: min(100%, 400px);
     padding: 10px;
     bottom: 24px;
-    border-radius: var(--radius);
+    border-radius: var(--radius-lg);
     background-color: #333;
     transform: translateX(-50%);
   }
@@ -22,6 +32,13 @@
     }
   }
 
-  .list {
+  .menuList {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .menuList.is-active {
+    opacity: 1;
+    visibility: visible;
   }
 </style>
