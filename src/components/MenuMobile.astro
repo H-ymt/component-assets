@@ -1,10 +1,17 @@
 ---
 import { Image } from "astro:assets";
+import { menuComponents } from "../consts";
 ---
 
 <nav class="menu">
   <ul class="menuList js-menuList">
-    <li><a href="/">Hamburger Menu</a></li>
+    {
+      menuComponents.map((menu) => (
+        <li>
+          <a href={menu.path}>{menu.label}</a>
+        </li>
+      ))
+    }
   </ul>
 
   <div class="menuIcons">
@@ -32,10 +39,10 @@ import { Image } from "astro:assets";
   .menu {
     position: absolute;
     left: 50%;
-    width: min(100%, 260px);
+    width: min(85%, 320px);
     padding: 10px 16px;
     bottom: 24px;
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-md);
     background-color: #333;
     transform: translateX(-50%);
   }
@@ -54,7 +61,7 @@ import { Image } from "astro:assets";
 
   .menuList {
     opacity: 0;
-    overflow: hidden;
+    overflow: scroll;
     height: 0;
     transition:
       height 0.3s ease,
@@ -64,7 +71,9 @@ import { Image } from "astro:assets";
   .menuList.is-active {
     opacity: 1;
     visibility: visible;
-    height: 100px;
+    height: auto;
+    max-height: 300px;
+    margin: 12px 0;
     transition:
       height 0.3s ease,
       opacity 0.3s ease;

@@ -10,4 +10,56 @@ export const menuComponents = [
     label: "Accordion",
     path: "/accordion",
   },
+  {
+    label: "Under Construction",
+    path: "/",
+  },
+  {
+    label: "Under Construction",
+    path: "/",
+  },
+  {
+    label: "Under Construction",
+    path: "/",
+  },
+  {
+    label: "Under Construction",
+    path: "/",
+  },
+  {
+    label: "Under Construction",
+    path: "/",
+  },
+  {
+    label: "Under Construction",
+    path: "/",
+  },
+  {
+    label: "Under Construction",
+    path: "/",
+  },
+  {
+    label: "Under Construction",
+    path: "/",
+  },
+  {
+    label: "Under Construction",
+    path: "/",
+  },
+  {
+    label: "Under Construction",
+    path: "/",
+  },
+  {
+    label: "Under Construction",
+    path: "/",
+  },
+  {
+    label: "Under Construction",
+    path: "/",
+  },
+  {
+    label: "Under Construction",
+    path: "/",
+  },
 ];
