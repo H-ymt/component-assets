@@ -19,8 +19,9 @@ import { menuComponents } from "../consts";
       src="/favicon.svg"
       width="32"
       height="32"
-      alt=""
+      alt="logo"
       aria-hidden="true"
+      class="logo"
     />
     <button type="button" class="js-toggleButton">Button</button>
   </div>
@@ -37,13 +38,15 @@ import { menuComponents } from "../consts";
 
 <style>
   .menu {
-    position: absolute;
+    position: fixed;
     left: 50%;
     width: min(85%, 320px);
     padding: 10px 16px;
     bottom: 24px;
     border-radius: var(--radius-md);
-    background-color: #333;
+    background: hsl(var(--background) / 0.35);
+    border: 1px solid hsl(var(--card-foreground) / 0.2);
+    backdrop-filter: blur(8px);
     transform: translateX(-50%);
   }
 
@@ -61,11 +64,13 @@ import { menuComponents } from "../consts";
 
   .menuList {
     opacity: 0;
+    visibility: hidden;
     overflow: scroll;
     height: 0;
     transition:
-      height 0.3s ease,
-      opacity 0.3s ease;
+      height 0.4s ease,
+      opacity 0.4s ease,
+      visibility 0.4s ease;
   }
 
   .menuList.is-active {
@@ -73,9 +78,10 @@ import { menuComponents } from "../consts";
     visibility: visible;
     height: auto;
     max-height: 300px;
-    margin: 12px 0;
+    margin: 16px 0;
     transition:
-      height 0.3s ease,
-      opacity 0.3s ease;
+      height 0.4s ease,
+      opacity 0.4s ease,
+      visibility 0.4s ease;
   }
 </style>
