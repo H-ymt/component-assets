@@ -1,8 +1,22 @@
+---
+import { Image } from "astro:assets";
+---
+
 <nav class="menu">
-  <button type="button" class="js-toggleButton">Open</button>
   <ul class="menuList js-menuList">
     <li><a href="/">Hamburger Menu</a></li>
   </ul>
+
+  <div class="menuIcons">
+    <Image
+      src="/favicon.svg"
+      width="32"
+      height="32"
+      alt=""
+      aria-hidden="true"
+    />
+    <button type="button" class="js-toggleButton">Button</button>
+  </div>
 </nav>
 
 <script>
@@ -18,8 +32,8 @@
   .menu {
     position: absolute;
     left: 50%;
-    width: min(100%, 400px);
-    padding: 10px;
+    width: min(100%, 260px);
+    padding: 10px 16px;
     bottom: 24px;
     border-radius: var(--radius-lg);
     background-color: #333;
@@ -32,13 +46,27 @@
     }
   }
 
+  .menuIcons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   .menuList {
     opacity: 0;
-    visibility: hidden;
+    overflow: hidden;
+    height: 0;
+    transition:
+      height 0.3s ease,
+      opacity 0.3s ease;
   }
 
   .menuList.is-active {
     opacity: 1;
     visibility: visible;
+    height: 100px;
+    transition:
+      height 0.3s ease,
+      opacity 0.3s ease;
   }
 </style>
