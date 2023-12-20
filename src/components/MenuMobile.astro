@@ -1,14 +1,27 @@
 ---
 import { Image } from "astro:assets";
-import { menuComponents } from "../consts";
+import { menuList } from "../consts";
+import logo from "../assets/ghost.svg";
+import menuIcon from "../assets/menu.svg";
+import closeIcon from "../assets/x.svg";
+
+const currentPath = Astro.url.pathname;
 ---
 
+<div class="overlay js-overlay"></div>
 <nav class="menu">
   <ul class="menuList js-menuList">
     {
-      menuComponents.map((menu) => (
+      menuList.map((menu) => (
         <li>
-          <a href={menu.path}>{menu.label}</a>
+          <a
+            href={menu.path}
+            class={`menuList__link ${
+              currentPath === menu.path ? "active" : ""
+            }`}
+          >
+            {menu.label}
+          </a>
         </li>
       ))
     }
@@ -16,72 +29,162 @@ import { menuComponents } from "../consts";
 
   <div class="menuIcons">
     <Image
-      src="/favicon.svg"
-      width="32"
-      height="32"
+      src={logo}
+      width="24"
+      height="23"
       alt="logo"
-      aria-hidden="true"
-      class="logo"
+      aria-label="home"
+      class="menuIcons__logo"
     />
-    <button type="button" class="js-toggleButton">Button</button>
+
+    <button class="menuIcons__toggle js-toggleButton">
+      <Image
+        src={menuIcon}
+        width="32"
+        height="32"
+        alt="menu open"
+        class="menuIcons__open js-openButton"
+      />
+      <Image
+        src={closeIcon}
+        width="32"
+        height="32"
+        alt="close menu"
+        class="menuIcons__close js-closeButton"
+      />
+    </button>
   </div>
-</nav>
 
-<script>
-  const toggleButton = document.querySelector(".js-toggleButton");
-  const menuList = document.querySelector(".js-menuList");
+  <script>
+    const overlay = document.querySelector(".js-overlay");
+    const toggleButton = document.querySelector(".js-toggleButton");
+    const menuList = document.querySelector(".js-menuList");
+    const openButton = document.querySelector(".js-openButton");
+    const closeButton = document.querySelector(".js-closeButton");
 
-  toggleButton.addEventListener("click", () => {
-    menuList.classList.toggle("is-active");
-  });
-</script>
+    toggleButton.addEventListener("click", () => {
+      overlay.classList.toggle("is-active");
+      menuList.classList.toggle("is-active");
+      openButton.classList.toggle("is-hidden");
+      closeButton.classList.toggle("is-active");
 
-<style>
-  .menu {
-    position: fixed;
-    left: 50%;
-    width: min(85%, 320px);
-    padding: 10px 16px;
-    bottom: 24px;
-    border-radius: var(--radius-md);
-    background: hsl(var(--background) / 0.35);
-    border: 1px solid hsl(var(--card-foreground) / 0.2);
-    backdrop-filter: blur(8px);
-    transform: translateX(-50%);
-  }
+      document.body.style.position = menuList.classList.contains("is-active")
+        ? ""
+        : "fixed";
+    });
 
-  @media screen and (min-width: 768px) {
-    .menu {
-      display: none;
+    overlay.addEventListener("click", () => {
+      overlay.classList.remove("is-active");
+      menuList.classList.remove("is-active");
+      openButton.classList.remove("is-hidden");
+      closeButton.classList.remove("is-active");
+    });
+  </script>
+
+  <style>
+    .overlay.is-active {
+      position: fixed;
+      inset: 0;
+      background: hsl(var(--muted) / 0.2);
+      backdrop-filter: blur(2px);
     }
-  }
 
-  .menuIcons {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+    .menu {
+      position: fixed;
+      left: 50%;
+      width: min(85%, 320px);
+      padding: 12px 16px;
+      bottom: 16px;
+      border-radius: var(--radius-md);
+      background: hsl(var(--background) / 0.5);
+      box-shadow: 0px 4px 24px 0px hsl(var(--popover-foreground) / 0.1);
+      backdrop-filter: blur(8px);
+      transform: translateX(-50%);
+    }
 
-  .menuList {
-    opacity: 0;
-    visibility: hidden;
-    overflow: scroll;
-    height: 0;
-    transition:
-      height 0.4s ease,
-      opacity 0.4s ease,
-      visibility 0.4s ease;
-  }
+    @media screen and (min-width: 768px) {
+      .menu {
+        display: none;
+      }
+    }
 
-  .menuList.is-active {
-    opacity: 1;
-    visibility: visible;
-    height: auto;
-    max-height: 300px;
-    margin: 16px 0;
-    transition:
-      height 0.4s ease,
-      opacity 0.4s ease,
-      visibility 0.4s ease;
-  }
-</style>
+    .menuIcons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .menuList {
+      opacity: 0;
+      visibility: hidden;
+      overflow: hidden scroll;
+      height: 0;
+      transition:
+        height 0.4s ease,
+        opacity 0.4s ease,
+        visibility 0.4s ease;
+    }
+
+    .menuList.is-active {
+      opacity: 1;
+      visibility: visible;
+      height: auto;
+      max-height: 300px;
+      margin: 16px 0;
+      transition:
+        height 0.4s ease,
+        opacity 0.4s ease,
+        visibility 0.4s ease;
+    }
+
+    .menuList__link {
+      color: hsl(var(--muted-foreground));
+      text-decoration: none;
+    }
+
+    .menuList__link.active {
+      font-weight: 600;
+      color: hsl(var(--foreground));
+    }
+
+    .menuIcons__logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: min(100%, 28px);
+    }
+
+    .menuIcons__toggle {
+      position: absolute;
+      right: 16px;
+    }
+
+    .menuIcons__toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .menuIcons__open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .menuIcons__open.is-hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .menuIcons__close {
+      opacity: 0;
+      visibility: hidden;
+      width: 0;
+    }
+
+    .menuIcons__close.is-active {
+      opacity: 1;
+      visibility: visible;
+      width: auto;
+    }
+  </style>
+</nav>

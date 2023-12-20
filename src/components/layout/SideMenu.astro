@@ -1,5 +1,5 @@
 ---
-import { menuComponents } from "../../consts";
+import { menuList } from "../../consts";
 const currentPage = Astro.url.pathname;
 ---
 
@@ -7,7 +7,7 @@ const currentPage = Astro.url.pathname;
   <h3 class="sideNav__title">Components</h3>
   <ul class="componentList">
     {
-      menuComponents.map((menu) => (
+      menuList.map((menu) => (
         <li>
           <a
             href={menu.path}

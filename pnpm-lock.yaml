@@ -14,6 +14,9 @@ dependencies:
   prettier-plugin-astro:
     specifier: ^0.12.2
     version: 0.12.2
+  ress:
+    specifier: ^5.0.2
+    version: 5.0.2
 
 packages:
 
@@ -2714,6 +2717,10 @@ packages:
       is-core-module: 2.13.1
       path-parse: 1.0.7
       supports-preserve-symlinks-flag: 1.0.0
+    dev: false
+
+  /ress@5.0.2:
+    resolution: {integrity: sha512-oHBtOWo/Uc8SzQMbQNIKTcgi8wKmAs7IlNlRywmXudbOtF+c27FlOIq7tnwLDVcTywe6JXYo1pDXHO6kABwNYA==}
     dev: false
 
   /restore-cursor@4.0.0:

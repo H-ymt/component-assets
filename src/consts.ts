@@ -1,7 +1,7 @@
 export const SITE_TITLE = "Component Asset";
 export const SITE_DESCRIPTION = "My UI Components assets.";
 
-export const menuComponents = [
+export const menuList = [
   {
     label: "Hamburger Menu",
     path: "/hamburger-menu",
@@ -11,55 +11,107 @@ export const menuComponents = [
     path: "/accordion",
   },
   {
-    label: "Under Construction",
-    path: "/",
+    label: "Example",
+    path: "/a",
   },
   {
-    label: "Under Construction",
-    path: "/",
+    label: "Example",
+    path: "/a",
   },
   {
-    label: "Under Construction",
-    path: "/",
+    label: "Example",
+    path: "/a",
   },
   {
-    label: "Under Construction",
-    path: "/",
+    label: "Example",
+    path: "/a",
   },
   {
-    label: "Under Construction",
-    path: "/",
+    label: "Example",
+    path: "/a",
   },
   {
-    label: "Under Construction",
-    path: "/",
+    label: "Example",
+    path: "/a",
   },
   {
-    label: "Under Construction",
-    path: "/",
+    label: "Example",
+    path: "/a",
   },
   {
-    label: "Under Construction",
-    path: "/",
+    label: "Example",
+    path: "/a",
   },
   {
-    label: "Under Construction",
-    path: "/",
+    label: "Example",
+    path: "/a",
   },
   {
-    label: "Under Construction",
-    path: "/",
+    label: "Example",
+    path: "/a",
   },
   {
-    label: "Under Construction",
-    path: "/",
+    label: "Example",
+    path: "/a",
   },
   {
-    label: "Under Construction",
-    path: "/",
+    label: "Example",
+    path: "/a",
   },
   {
-    label: "Under Construction",
-    path: "/",
+    label: "Example",
+    path: "/a",
+  },
+  {
+    label: "Example",
+    path: "/a",
+  },
+  {
+    label: "Example",
+    path: "/a",
+  },
+  {
+    label: "Example",
+    path: "/a",
+  },
+  {
+    label: "Example",
+    path: "/a",
+  },
+  {
+    label: "Example",
+    path: "/a",
+  },
+  {
+    label: "Example",
+    path: "/a",
+  },
+  {
+    label: "Example",
+    path: "/a",
+  },
+  {
+    label: "Example",
+    path: "/a",
+  },
+  {
+    label: "Example",
+    path: "/a",
+  },
+  {
+    label: "Example",
+    path: "/a",
+  },
+  {
+    label: "Example",
+    path: "/a",
+  },
+  {
+    label: "Example",
+    path: "/a",
+  },
+  {
+    label: "Example",
+    path: "/a",
   },
 ];
