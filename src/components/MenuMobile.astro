@@ -28,14 +28,16 @@ const currentPath = Astro.url.pathname;
   </ul>
 
   <div class="menuIcons">
-    <Image
-      src={logo}
-      width="24"
-      height="23"
-      alt="logo"
-      aria-label="home"
-      class="menuIcons__logo"
-    />
+    <a href="/">
+      <Image
+        src={logo}
+        width="24"
+        height="23"
+        alt="logo"
+        aria-label="home"
+        class="menuIcons__logo"
+      />
+    </a>
 
     <button class="menuIcons__toggle js-toggleButton">
       <Image
