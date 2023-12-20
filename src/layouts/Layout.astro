@@ -1,5 +1,6 @@
 ---
 import "ress";
+import Header from "../components/Header.astro";
 import MenuMobile from "../components/MenuMobile.astro";
 import GridLayout from "../components/layout/GridLayout.astro";
 import SideMenu from "../components/layout/SideMenu.astro";
@@ -24,6 +25,7 @@ const { title, description } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
+    <Header />
     <GridLayout>
       <MenuMobile />
       <aside class="aside">
@@ -40,13 +42,20 @@ const { title, description } = Astro.props;
 <style>
   .aside {
     position: sticky;
-    grid-area: 1 / 1 / auto / span 4;
-    top: 36px;
+    grid-area: 1 / 1 / auto / auto;
+    min-width: 200px;
+    top: 96px;
     align-self: start;
   }
 
   .main {
     grid-area: 1 / span 12 / auto / span 12;
-    padding: 24px 20px;
+    padding: 24px 16px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    .main {
+      padding: 24px 48px;
+    }
   }
 </style>
