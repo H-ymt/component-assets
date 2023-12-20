@@ -1,0 +1,106 @@
+---
+import { Image } from "astro:assets";
+import logo from "../assets/ghost.svg";
+import githubIcon from "../assets/github.svg";
+import x from "../assets/twitter-x.svg";
+---
+
+<header class="header">
+  <div class="headerInner">
+    <a href="./">
+      <Image
+        src={logo}
+        width="32"
+        height="32"
+        alt="logo"
+        aria-label="ホームへ戻る"
+        class="headerLogo"
+      />
+    </a>
+
+    <nav class="headerNav">
+      <ul class="headerNav__list">
+        <li>
+          <a
+            href="https://github.com/H-ymt/component-assets"
+            class="headerNav__link"
+            ><Image
+              src={githubIcon}
+              width="20"
+              height="20"
+              alt="GitHub"
+              class="headerNav__github"
+            /></a
+          >
+        </li>
+        <li>
+          <a href="https://twitter.com/Hy1272" class="headerNav__link"
+            ><Image
+              src={x}
+              width="20"
+              height="20"
+              alt="X(Twitter)"
+              class="headerNav__github"
+            /></a
+          >
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .header {
+    display: none;
+  }
+
+  @media screen and (min-width: 768px) {
+    .header {
+      display: block;
+      position: sticky;
+      z-index: 1;
+      top: 0;
+      width: 100%;
+      padding: 10px 32px;
+      border-bottom: 1px solid hsl(var(--border));
+      background: hsl(var(--background) / 0.8);
+      backdrop-filter: blur(4px);
+    }
+  }
+
+  .headerInner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: min(100%, 1200px);
+    margin-inline: auto;
+  }
+
+  .headerLogo {
+    transform: rotate(-8deg);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .headerNav__list {
+    display: flex;
+    align-items: center;
+  }
+
+  .headerNav__link {
+    display: flex;
+    padding: 10px;
+    transition: background 0.2s ease;
+  }
+
+  @media (hover: hover) {
+    .headerNav__link:hover {
+      background: hsl(var(--muted));
+      border-radius: var(--radius);
+      transition: background 0.2s ease;
+    }
+  }
+
+  .headerNav__github {
+    fill: hsl(var(--foreground));
+  }
+</style>
