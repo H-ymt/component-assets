@@ -1,10 +1,24 @@
 ---
 import { SITE_TITLE } from "../consts";
 import Layout from "../layouts/Layout.astro";
+import Accordion from "../source/Accordion.mdx";
 ---
 
 <Layout title={`${SITE_TITLE} - Hamburger Menu`} description="Hamburger Menu">
   <div>
     <h1>Hamburger Menu</h1>
+
+    <div>
+      <h2>Preview</h2>
+      <details>
+        <summary>content</summary>
+        <p>text</p>
+      </details>
+    </div>
+
+    <div>
+      <h2>Code</h2>
+      <Accordion />
+    </div>
   </div>
 </Layout>
