@@ -1,10 +1,67 @@
 ---
+import Card from "../components/Card.astro";
+import DocsHeading from "../components/DocsHeading.astro";
 import { SITE_TITLE } from "../consts";
 import Layout from "../layouts/Layout.astro";
+import AccordionMenu from "../source/AccordionMenu.mdx";
 ---
 
 <Layout title={`${SITE_TITLE} - Accordion`} description="Accordion">
   <div>
     <h1>Accordion</h1>
+    <p>
+      クリックすることで隠れていた内容を表示させたり、隠したりするナビゲーションメニュー
+    </p>
+
+    <div>
+      <DocsHeading id="preview">Preview</DocsHeading>
+      <Card>
+        <div class="accordion">
+          <details class="details">
+            <summary class="summary">summary</summary>
+            <div class="details__content">contents</div>
+          </details>
+        </div>
+      </Card>
+    </div>
+  </div>
+
+  <div>
+    <DocsHeading id="code">Code</DocsHeading>
+    <AccordionMenu />
   </div>
 </Layout>
+
+<style>
+  /* 共通のCSS */
+  summary {
+    cursor: pointer;
+  }
+
+  summary::marker {
+    content: "";
+  }
+
+  .accordion {
+    width: min(100%, 500px);
+    display: block;
+    color: hsl(var(--foreground));
+    text-align: left;
+    border-bottom: 1px solid hsl(var(--border));
+  }
+
+  .summary {
+    padding: 12px 0;
+  }
+
+  @media (hover: hover) {
+    .summary:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .details__content {
+    padding-bottom: 16px;
+    font-size: 14px;
+  }
+</style>

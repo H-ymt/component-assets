@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900);
+
 :root {
   --background: 0 0% 100%;
   --foreground: 224 71.4% 4.1%;
@@ -53,6 +55,7 @@ html,
 body {
   position: relative;
   min-height: 100vh;
+  font-family: inter, sans-serif;
   color: hsl(var(--muted-foreground));
   background-color: hsl(var(--background));
 }
@@ -60,6 +63,14 @@ body {
 h1,
 h2 {
   color: hsl(var(--foreground));
+}
+
+h1 {
+  font-size: 36px;
+}
+
+h2 {
+  font-size: 24px;
 }
 
 li {

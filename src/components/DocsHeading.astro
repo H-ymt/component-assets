@@ -1,0 +1,17 @@
+---
+interface Props {
+  id: string;
+}
+
+const { id } = Astro.props;
+---
+
+<h2 id={id} class="heading"><slot /></h2>
+
+<style>
+  .heading {
+    margin: 40px 0 24px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid hsl(var(--border));
+  }
+</style>

@@ -1,0 +1,42 @@
+```html
+<div class="accordion">
+  <details class="details">
+    <summary class="summary">summary</summary>
+    <div class="details__content">contents</div>
+  </details>
+</div>
+
+<style>
+  /* 共通のCSS */
+  summary {
+    cursor: pointer;
+  }
+
+  summary::marker {
+    content: "";
+  }
+
+  .accordion {
+    width: min(100%, 500px);
+    display: block;
+    color: hsl(var(--foreground));
+    text-align: left;
+    border-bottom: 1px solid hsl(var(--border));
+  }
+
+  .summary {
+    padding: 12px 0;
+  }
+
+  @media (hover: hover) {
+    .summary:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .details__content {
+    padding-bottom: 16px;
+    font-size: 14px;
+  }
+</style>
+```
