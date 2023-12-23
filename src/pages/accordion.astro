@@ -1,9 +1,11 @@
 ---
 import Card from "../components/Card.astro";
+import CodeBlock from "../components/CodeBlock.astro";
 import DocsHeading from "../components/DocsHeading.astro";
 import { SITE_TITLE } from "../consts";
 import Layout from "../layouts/Layout.astro";
-import AccordionMenu from "../source/AccordionMenu.mdx";
+import AccordionMenu from "../source/accordion-menu/AccordionMenu.mdx";
+import AccordionMenuStyle from "../source/accordion-menu/AccordionMenuStyle.mdx";
 ---
 
 <Layout title={`${SITE_TITLE} - Accordion`} description="Accordion">
@@ -21,19 +23,33 @@ import AccordionMenu from "../source/AccordionMenu.mdx";
             <summary class="summary">summary</summary>
             <div class="details__content">contents</div>
           </details>
+          <details class="details">
+            <summary class="summary">summary</summary>
+            <div class="details__content">contents</div>
+          </details>
+          <details class="details">
+            <summary class="summary">summary</summary>
+            <div class="details__content">contents</div>
+          </details>
         </div>
       </Card>
     </div>
   </div>
 
-  <div>
+  <div class="code">
     <DocsHeading id="code">Code</DocsHeading>
-    <AccordionMenu />
+    <CodeBlock>
+      <AccordionMenu />
+      <AccordionMenuStyle />
+    </CodeBlock>
+  </div>
+
+  <div>
+    <DocsHeading id="examples">Examples</DocsHeading>
   </div>
 </Layout>
 
 <style>
-  /* 共通のCSS */
   summary {
     cursor: pointer;
   }
@@ -43,11 +59,10 @@ import AccordionMenu from "../source/AccordionMenu.mdx";
   }
 
   .accordion {
-    width: min(100%, 500px);
+    width: min(100%, 460px);
     display: block;
     color: hsl(var(--foreground));
     text-align: left;
-    border-bottom: 1px solid hsl(var(--border));
   }
 
   .summary {
@@ -58,6 +73,10 @@ import AccordionMenu from "../source/AccordionMenu.mdx";
     .summary:hover {
       text-decoration: underline;
     }
+  }
+
+  .details {
+    border-bottom: 1px solid hsl(var(--border));
   }
 
   .details__content {
