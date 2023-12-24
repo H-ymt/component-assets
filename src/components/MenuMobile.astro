@@ -5,7 +5,7 @@ import githubIcon from "../assets/github.svg";
 import menuIcon from "../assets/menu.svg";
 import x from "../assets/twitter-x.svg";
 import closeIcon from "../assets/x.svg";
-import { menuList } from "../consts";
+import { MENU_LIST } from "../consts";
 
 const currentPath = Astro.url.pathname;
 ---
@@ -14,7 +14,7 @@ const currentPath = Astro.url.pathname;
   <ul class="menuList js-menuList">
     <p class="menuList__title">Components</p>
     {
-      menuList.map((menu) => (
+      MENU_LIST.map((menu) => (
         <>
           <li>
             <a

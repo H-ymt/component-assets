@@ -1,7 +1,7 @@
 export const SITE_TITLE = "Component Asset";
 export const SITE_DESCRIPTION = "My UI Components assets.";
 
-export const menuList = [
+export const MENU_LIST = [
   {
     label: "Hamburger Menu",
     path: "/hamburger-menu",
