@@ -1,11 +1,9 @@
 ---
 import Card from "../components/Card.astro";
-import CodeBlock from "../components/CodeBlock.astro";
 import DocsHeading from "../components/DocsHeading.astro";
 import { SITE_TITLE } from "../consts";
 import Layout from "../layouts/Layout.astro";
-import AccordionMenu from "../source/accordion-menu/AccordionMenu.mdx";
-import AccordionMenuStyle from "../source/accordion-menu/AccordionMenuStyle.mdx";
+import AccordionDefault from "../source/accordion-menu/AccordionDefault.mdx";
 ---
 
 <Layout title={`${SITE_TITLE} - Accordion`} description="Accordion">
@@ -38,14 +36,12 @@ import AccordionMenuStyle from "../source/accordion-menu/AccordionMenuStyle.mdx"
 
   <div class="code">
     <DocsHeading id="code">Code</DocsHeading>
-    <CodeBlock>
-      <AccordionMenu />
-      <AccordionMenuStyle />
-    </CodeBlock>
+    <AccordionDefault />
   </div>
 
   <div>
     <DocsHeading id="examples">Examples</DocsHeading>
+    <h3>with Arrow Icon</h3>
   </div>
 </Layout>
 

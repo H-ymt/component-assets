@@ -1,8 +1,8 @@
 ---
 import "ress";
-import Header from "../components/layout/Header.astro";
 import MenuMobile from "../components/MenuMobile.astro";
 import GridLayout from "../components/layout/GridLayout.astro";
+import Header from "../components/layout/Header.astro";
 import SideMenu from "../components/layout/SideMenu.astro";
 import "../styles/global.css";
 
@@ -56,9 +56,11 @@ const { title, description } = Astro.props;
     }
   }
 
-  .main {
-    grid-area: 1 / span 12 / auto / span 12;
-    padding: 24px 40px;
+  @media screen and (min-width: 768px) {
+    .main {
+      grid-area: 1 / span 12 / auto / span 12;
+      padding: 24px 40px;
+    }
   }
 
   @media screen and (min-width: 1200px) {

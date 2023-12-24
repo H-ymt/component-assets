@@ -1,11 +1,18 @@
+```html
+<div class="accordion">
+  <details class="details">
+    <summary class="summary">summary</summary>
+    <div class="content">contents</div>
+  </details>
+</div>
+```
+<br/>
 ```css
-<style>
-  /* 共通のCSS */
-  summary {
+  .summary {
     cursor: pointer;
   }
 
-  summary::marker {
+  .summary::marker {
     content: "";
   }
 
@@ -27,9 +34,8 @@
     }
   }
 
-  .details__content {
+  .content {
     padding-bottom: 16px;
     font-size: 14px;
   }
-</style>
 ```
