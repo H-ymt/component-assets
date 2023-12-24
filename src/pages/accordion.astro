@@ -46,11 +46,12 @@ import AccordionDefault from "../source/accordion-menu/AccordionDefault.mdx";
 </Layout>
 
 <style>
-  summary {
+  .summary {
     cursor: pointer;
   }
 
-  summary::marker {
+  .summary::marker,
+  .summary::-webkit-details-marker {
     content: "";
   }
 

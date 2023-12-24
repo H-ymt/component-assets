@@ -6,36 +6,35 @@
   </details>
 </div>
 ```
-<br/>
+
+<br />
+
 ```css
-  .summary {
-    cursor: pointer;
-  }
+.summary::marker,
+.summary::-webkit-details-marker {
+  content: "";
+}
 
-  .summary::marker {
-    content: "";
-  }
+.accordion {
+  width: min(100%, 500px);
+  display: block;
+  color: hsl(var(--foreground));
+  text-align: left;
+  border-bottom: 1px solid hsl(var(--border));
+}
 
-  .accordion {
-    width: min(100%, 500px);
-    display: block;
-    color: hsl(var(--foreground));
-    text-align: left;
-    border-bottom: 1px solid hsl(var(--border));
-  }
+.summary {
+  padding: 12px 0;
+}
 
-  .summary {
-    padding: 12px 0;
+@media (hover: hover) {
+  .summary:hover {
+    text-decoration: underline;
   }
+}
 
-  @media (hover: hover) {
-    .summary:hover {
-      text-decoration: underline;
-    }
-  }
-
-  .content {
-    padding-bottom: 16px;
-    font-size: 14px;
-  }
+.content {
+  padding-bottom: 16px;
+  font-size: 14px;
+}
 ```
