@@ -97,3 +97,7 @@ a:visited {
   background: hsl(var(--border));
   border-radius: 5px;
 }
+
+summary {
+  cursor: pointer;
+}
