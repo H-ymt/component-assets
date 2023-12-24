@@ -1,14 +1,15 @@
 ---
 import { Image } from "astro:assets";
-import { menuList } from "../consts";
 import logo from "../assets/ghost.svg";
+import githubIcon from "../assets/github.svg";
 import menuIcon from "../assets/menu.svg";
+import x from "../assets/twitter-x.svg";
 import closeIcon from "../assets/x.svg";
+import { menuList } from "../consts";
 
 const currentPath = Astro.url.pathname;
 ---
 
-<div class="overlay js-overlay"></div>
 <nav class="menu">
   <ul class="menuList js-menuList">
     {
@@ -28,165 +29,183 @@ const currentPath = Astro.url.pathname;
   </ul>
 
   <div class="menuIcons">
-    <a href="/">
-      <Image
-        src={logo}
-        width="24"
-        height="23"
-        alt="logo"
-        aria-label="home"
-        class="menuIcons__logo"
-      />
+    <a href="/" class="menuIcons__button menuIcons__logo">
+      <Image src={logo} width="22" height="22" alt="logo" aria-label="home" />
     </a>
 
-    <button class="menuIcons__toggle js-toggleButton">
+    <a
+      href="https://github.com/H-ymt/component-assets"
+      class="menuIcons__button headerNav__github"
+      ><Image src={githubIcon} width="20" height="20" alt="GitHub" /></a
+    >
+
+    <a href="https://twitter.com/Hy1272" class="menuIcons__button headerNav__x"
+      ><Image src={x} width="20" height="20" alt="X(Twitter)" /></a
+    >
+
+    <button
+      class="menuIcons__button menuIcons__toggle js-toggleButton"
+      type="button"
+      aria-label="menu toggle"
+    >
       <Image
         src={menuIcon}
-        width="32"
-        height="32"
-        alt="menu open"
-        class="menuIcons__open js-openButton"
+        width="24"
+        height="24"
+        alt="open"
+        class="menuIcons__open"
       />
       <Image
         src={closeIcon}
-        width="32"
-        height="32"
-        alt="close menu"
+        width="24"
+        height="24"
+        alt="close"
         class="menuIcons__close js-closeButton"
       />
     </button>
   </div>
-
-  <script>
-    const overlay = document.querySelector(".js-overlay");
-    const toggleButton = document.querySelector(".js-toggleButton");
-    const menuList = document.querySelector(".js-menuList");
-    const openButton = document.querySelector(".js-openButton");
-    const closeButton = document.querySelector(".js-closeButton");
-
-    toggleButton.addEventListener("click", () => {
-      overlay.classList.toggle("is-active");
-      menuList.classList.toggle("is-active");
-      openButton.classList.toggle("is-hidden");
-      closeButton.classList.toggle("is-active");
-
-      document.body.style.position = menuList.classList.contains("is-active")
-        ? ""
-        : "fixed";
-    });
-
-    overlay.addEventListener("click", () => {
-      overlay.classList.remove("is-active");
-      menuList.classList.remove("is-active");
-      openButton.classList.remove("is-hidden");
-      closeButton.classList.remove("is-active");
-    });
-  </script>
-
-  <style>
-    .overlay.is-active {
-      position: fixed;
-      inset: 0;
-      background: hsl(var(--muted) / 0.2);
-      backdrop-filter: blur(2px);
-    }
-
-    .menu {
-      position: fixed;
-      left: 50%;
-      width: min(85%, 320px);
-      padding: 16px 16px;
-      bottom: 32px;
-      border-radius: var(--radius-md);
-      background: hsl(var(--background) / 0.5);
-      box-shadow: 0px 4px 24px 0px hsl(var(--popover-foreground) / 0.1);
-      backdrop-filter: blur(8px);
-      transform: translateX(-50%);
-    }
-
-    @media screen and (min-width: 768px) {
-      .menu {
-        display: none;
-      }
-    }
-
-    .menuIcons {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .menuList {
-      opacity: 0;
-      visibility: hidden;
-      overflow: hidden scroll;
-      height: 0;
-      transition:
-        height 0.4s ease,
-        opacity 0.4s ease,
-        visibility 0.4s ease;
-    }
-
-    .menuList.is-active {
-      opacity: 1;
-      visibility: visible;
-      height: auto;
-      max-height: 300px;
-      margin: 16px 0;
-      transition:
-        height 0.4s ease,
-        opacity 0.4s ease,
-        visibility 0.4s ease;
-    }
-
-    .menuList__link {
-      color: hsl(var(--muted-foreground));
-      text-decoration: none;
-    }
-
-    .menuList__link.active {
-      font-weight: 600;
-      color: hsl(var(--foreground));
-    }
-
-    .menuIcons__logo {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: min(100%, 28px);
-    }
-
-    .menuIcons__toggle {
-      position: absolute;
-      right: 16px;
-    }
-
-    .menuIcons__toggle {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .menuIcons__open {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .menuIcons__open.is-hidden {
-      opacity: 0;
-      visibility: hidden;
-    }
-
-    .menuIcons__close {
-      opacity: 0;
-      visibility: hidden;
-      width: 0;
-    }
-
-    .menuIcons__close.is-active {
-      opacity: 1;
-      visibility: visible;
-      width: auto;
-    }
-  </style>
 </nav>
+
+<style>
+  .menu {
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 16px;
+    max-width: 170px;
+    border-radius: var(--radius-lg);
+    background: hsl(var(--background) / 0.85);
+    box-shadow: 0px 4px 24px 0px hsl(var(--popover-foreground) / 0.1);
+    backdrop-filter: blur(2px);
+    transform: translateX(-50%);
+  }
+
+  @media screen and (min-width: 768px) {
+    .menu {
+      display: none;
+    }
+  }
+
+  .menuList {
+    display: flex;
+    opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    width: 95vw;
+    max-height: 320px;
+    bottom: 50px;
+    left: 50%;
+    flex-direction: column;
+    gap: 10px;
+    padding: 24px 24px;
+    border-radius: var(--radius-md);
+    background: hsl(var(--background) / 0.98);
+    box-shadow: 0px 4px 24px 0px hsl(var(--popover-foreground) / 0.1);
+    backdrop-filter: blur(2px);
+    transform: translateX(-50%);
+    transform-origin: bottom;
+    overflow: hidden scroll;
+    margin-bottom: 12px;
+    transition:
+      transform 0s ease,
+      opacity 0.4s ease,
+      visibility 0.4s ease;
+  }
+
+  .menuList.is-active {
+    opacity: 1;
+    visibility: visible;
+    left: 50%;
+    transform: translateX(-50%);
+    transition:
+      transform 0.2s ease,
+      opacity 0.4s ease,
+      visibility 0.4s ease;
+  }
+
+  .menuList__link {
+    color: hsl(var(--muted-foreground));
+    text-decoration: none;
+  }
+
+  .menuList__link.active {
+    font-weight: 600;
+    color: hsl(var(--foreground));
+  }
+
+  .menuIcons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .menuIcons__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 42px;
+    height: 42px;
+  }
+
+  .menuIcons__button:first-child {
+    width: 50px;
+    border-top-left-radius: var(--radius-lg);
+    border-bottom-left-radius: var(--radius-lg);
+  }
+
+  .menuIcons__button:last-child {
+    width: 50px;
+    border-top-right-radius: var(--radius-lg);
+    border-bottom-right-radius: var(--radius-lg);
+  }
+
+  @media (hover: hover) {
+    .menuIcons__button:hover {
+      background: hsl(var(--muted));
+    }
+  }
+
+  .menuIcons__button:focus-visible {
+    background: hsl(var(--muted));
+  }
+
+  .menuIcons__toggle .menuIcons__open,
+  .menuIcons__toggle.is-active .menuIcons__close {
+    opacity: 1;
+    visibility: visible;
+    width: auto;
+  }
+
+  .menuIcons__toggle.is-active .menuIcons__open,
+  .menuIcons__toggle .menuIcons__close {
+    opacity: 0;
+    visibility: hidden;
+    width: 0;
+  }
+</style>
+
+<script>
+  const overlay = document.querySelector(".js-overlay");
+  const toggleButton = document.querySelector(".js-toggleButton");
+  const menuList = document.querySelector(".js-menuList");
+  const openButton = document.querySelector(".js-openButton");
+  const closeButton = document.querySelector(".js-closeButton");
+
+  toggleButton.addEventListener("click", () => {
+    menuList.classList.toggle("is-active");
+    toggleButton.classList.toggle("is-active");
+    openButton.classList.toggle("is-hidden");
+    closeButton.classList.toggle("is-active");
+
+    document.body.style.position = menuList.classList.contains("is-active")
+      ? "fixed"
+      : "";
+  });
+
+  overlay.addEventListener("click", () => {
+    menuList.classList.remove("is-active");
+    toggleButton.classList.remove("is-active");
+    openButton.classList.remove("is-hidden");
+    closeButton.classList.remove("is-active");
+  });
+</script>
