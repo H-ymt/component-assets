@@ -71,7 +71,7 @@ const currentPath = Astro.url.pathname;
     position: fixed;
     z-index: 1;
     left: 50%;
-    bottom: 14px;
+    bottom: 20px;
     border-radius: var(--radius-lg);
     background: hsl(var(--background) / 0.95);
     box-shadow: 0px 4px 24px 0px hsl(var(--popover-foreground) / 0.1);
@@ -92,7 +92,7 @@ const currentPath = Astro.url.pathname;
     position: fixed;
     width: 95vw;
     max-height: 320px;
-    bottom: 50px;
+    bottom: 58px;
     left: 50%;
     flex-direction: column;
     gap: 10px;
@@ -147,13 +147,15 @@ const currentPath = Astro.url.pathname;
   }
 
   .menuIcons__button:first-child {
-    width: 50px;
+    width: 48px;
+    padding-left: 4px;
     border-top-left-radius: var(--radius-lg);
     border-bottom-left-radius: var(--radius-lg);
   }
 
   .menuIcons__button:last-child {
-    width: 50px;
+    width: 48px;
+    padding-right: 4px;
     border-top-right-radius: var(--radius-lg);
     border-bottom-right-radius: var(--radius-lg);
   }
