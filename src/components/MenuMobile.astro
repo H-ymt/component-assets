@@ -12,6 +12,20 @@ const currentPath = Astro.url.pathname;
 
 <nav class="menu">
   <ul class="menuList js-menuList">
+    <a href="/" class="menuIcons__button menuIcons__logo">
+      <Image src={logo} width="24" height="24" alt="logo" aria-label="home" />
+    </a>
+
+    <a
+      href="https://github.com/H-ymt/component-assets"
+      class="menuIcons__button headerNav__github"
+      ><Image src={githubIcon} width="22" height="22" alt="GitHub" /></a
+    >
+
+    <a href="https://twitter.com/Hy1272" class="menuIcons__button headerNav__x"
+      ><Image src={x} width="22" height="22" alt="X(Twitter)" /></a
+    >
+    <a href="/" class="menuList__title">Home</a>
     <p class="menuList__title">Components</p>
     {
       MENU_LIST.map((menu) => (
@@ -32,39 +46,25 @@ const currentPath = Astro.url.pathname;
   </ul>
 
   <div class="menuIcons">
-    <a href="/" class="menuIcons__button menuIcons__logo">
-      <Image src={logo} width="22" height="22" alt="logo" aria-label="home" />
-    </a>
-
-    <a
-      href="https://github.com/H-ymt/component-assets"
-      class="menuIcons__button headerNav__github"
-      ><Image src={githubIcon} width="20" height="20" alt="GitHub" /></a
-    >
-
-    <a href="https://twitter.com/Hy1272" class="menuIcons__button headerNav__x"
-      ><Image src={x} width="20" height="20" alt="X(Twitter)" /></a
-    >
-
     <button
       class="menuIcons__button menuIcons__toggle js-toggleButton"
       type="button"
       aria-label="menu toggle"
     >
-      <Image
-        src={menuIcon}
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
         width="24"
         height="24"
-        alt="open"
-        class="menuIcons__open"
-      />
-      <Image
-        src={closeIcon}
-        width="24"
-        height="24"
-        alt="close"
-        class="menuIcons__close js-closeButton"
-      />
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="#000000"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="lucide lucide-more-horizontal"
+        ><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"
+        ></circle><circle cx="5" cy="12" r="1"></circle></svg
+      >
     </button>
   </div>
 </nav>
@@ -93,7 +93,8 @@ const currentPath = Astro.url.pathname;
     opacity: 0;
     visibility: hidden;
     position: fixed;
-    width: 95vw;
+    width: 85vw;
+    max-width: 360px;
     max-height: 320px;
     bottom: 58px;
     left: 50%;
@@ -128,7 +129,7 @@ const currentPath = Astro.url.pathname;
   .menuList__title {
     color: hsl(var(--foreground));
     font-weight: 500;
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .menuList__link {
@@ -151,18 +152,18 @@ const currentPath = Astro.url.pathname;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 44px;
-    height: 48px;
+    width: 46px;
+    height: 50px;
   }
 
   .menuIcons__button:first-child {
-    width: 48px;
+    width: 50px;
     border-top-left-radius: var(--radius-lg);
     border-bottom-left-radius: var(--radius-lg);
   }
 
   .menuIcons__button:last-child {
-    width: 48px;
+    width: 50px;
     border-top-right-radius: var(--radius-lg);
     border-bottom-right-radius: var(--radius-lg);
   }
