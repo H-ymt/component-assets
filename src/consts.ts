@@ -1,5 +1,6 @@
 export const SITE_TITLE = "Component Asset";
-export const SITE_DESCRIPTION = "My UI Components assets.";
+export const SITE_DESCRIPTION =
+  "仕事や趣味でつくったコンポーネントを集めたWebサイトです。";
 
 export const MENU_LIST = [
   {

@@ -1,4 +1,5 @@
 ---
+import ButtonLink from "../components/ButtonLink.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 import Layout from "../layouts/Layout.astro";
 ---
@@ -6,126 +7,27 @@ import Layout from "../layouts/Layout.astro";
 <Layout title={`Hymt - ${SITE_TITLE}`} description={SITE_DESCRIPTION}>
   <h1>My UI Component assets</h1>
 
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda saepe
-    facere dignissimos. Iure, nesciunt. Corporis ullam facilis inventore ad
-    tempora dicta, blanditiis voluptatem quis amet itaque consectetur aliquid
-    perferendis, voluptatum corrupti recusandae nemo, illo reprehenderit laborum
-    dolore. Blanditiis omnis fuga, quisquam adipisci similique eos ullam sint
-    pariatur ex voluptatem, quos nemo tempore sit earum! Officia minus quasi
-    modi, voluptas delectus, reprehenderit quam ducimus voluptatibus architecto,
-    fugiat rerum nulla reiciendis qui quia. Doloribus ab iste aliquid eveniet
-    eligendi reiciendis et vero?
-  </p>
-
-  <h2>Title</h2>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis quibusdam
-    earum et qui aperiam quis necessitatibus assumenda, repellendus obcaecati
-    fugiat pariatur nesciunt accusamus consectetur maxime maiores? Consequatur
-    iure praesentium quod.
-  </p>
-
-  <h2>Title</h2>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis quibusdam
-    earum et qui aperiam quis necessitatibus assumenda, repellendus obcaecati
-    fugiat pariatur nesciunt accusamus consectetur maxime maiores? Consequatur
-    iure praesentium quod.
-  </p>
-  <h2>Title</h2>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis quibusdam
-    earum et qui aperiam quis necessitatibus assumenda, repellendus obcaecati
-    fugiat pariatur nesciunt accusamus consectetur maxime maiores? Consequatur
-    iure praesentium quod.
-  </p>
-  <h2>Title</h2>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis quibusdam
-    earum et qui aperiam quis necessitatibus assumenda, repellendus obcaecati
-    fugiat pariatur nesciunt accusamus consectetur maxime maiores? Consequatur
-    iure praesentium quod.
-  </p>
-  <h2>Title</h2>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis quibusdam
-    earum et qui aperiam quis necessitatibus assumenda, repellendus obcaecati
-    fugiat pariatur nesciunt accusamus consectetur maxime maiores? Consequatur
-    iure praesentium quod.
-  </p>
-  <h2>Title</h2>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis quibusdam
-    earum et qui aperiam quis necessitatibus assumenda, repellendus obcaecati
-    fugiat pariatur nesciunt accusamus consectetur maxime maiores? Consequatur
-    iure praesentium quod.
-  </p>
-  <h2>Title</h2>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis quibusdam
-    earum et qui aperiam quis necessitatibus assumenda, repellendus obcaecati
-    fugiat pariatur nesciunt accusamus consectetur maxime maiores? Consequatur
-    iure praesentium quod.
-  </p>
-  <h2>Title</h2>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis quibusdam
-    earum et qui aperiam quis necessitatibus assumenda, repellendus obcaecati
-    fugiat pariatur nesciunt accusamus consectetur maxime maiores? Consequatur
-    iure praesentium quod.
-  </p>
-  <h2>Title</h2>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis quibusdam
-    earum et qui aperiam quis necessitatibus assumenda, repellendus obcaecati
-    fugiat pariatur nesciunt accusamus consectetur maxime maiores? Consequatur
-    iure praesentium quod.
-  </p>
-  <h2>Title</h2>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis quibusdam
-    earum et qui aperiam quis necessitatibus assumenda, repellendus obcaecati
-    fugiat pariatur nesciunt accusamus consectetur maxime maiores? Consequatur
-    iure praesentium quod.
-  </p>
-  <h2>Title</h2>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis quibusdam
-    earum et qui aperiam quis necessitatibus assumenda, repellendus obcaecati
-    fugiat pariatur nesciunt accusamus consectetur maxime maiores? Consequatur
-    iure praesentium quod.
-  </p>
-  <h2>Title</h2>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis quibusdam
-    earum et qui aperiam quis necessitatibus assumenda, repellendus obcaecati
-    fugiat pariatur nesciunt accusamus consectetur maxime maiores? Consequatur
-    iure praesentium quod.
-  </p>
-  <h2>Title</h2>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis quibusdam
-    earum et qui aperiam quis necessitatibus assumenda, repellendus obcaecati
-    fugiat pariatur nesciunt accusamus consectetur maxime maiores? Consequatur
-    iure praesentium quod.
-  </p>
-
-  <h2>Title</h2>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis quibusdam
-    earum et qui aperiam quis necessitatibus assumenda, repellendus obcaecati
-    fugiat pariatur nesciunt accusamus consectetur maxime maiores? Consequatur
-    iure praesentium quod.
-  </p>
-
-  <h2>Title</h2>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis quibusdam
-    earum et qui aperiam quis necessitatibus assumenda, repellendus obcaecati
-    fugiat pariatur nesciunt accusamus consectetur maxime maiores? Consequatur
-    iure praesentium quod.
-  </p>
+  <div class="top">
+    <p>仕事や趣味でつくったコンポーネントを集めたWebサイトです。</p>
+    <ButtonLink href="https://github.com/H-ymt/component-assets">
+      <svg class="topButton__github" width="16" height="16" viewBox="0 0 24 24"
+        ><path
+          d="M12 .5C5.37.5 0 5.78 0 12.292c0 5.211 3.438 9.63 8.205 11.188.6.111.82-.254.82-.567 0-.28-.01-1.022-.015-2.005-3.338.711-4.042-1.582-4.042-1.582-.546-1.361-1.335-1.725-1.335-1.725-1.087-.731.084-.716.084-.716 1.205.082 1.838 1.215 1.838 1.215 1.07 1.803 2.809 1.282 3.495.981.108-.763.417-1.282.76-1.577-2.665-.295-5.466-1.309-5.466-5.827 0-1.287.465-2.339 1.235-3.164-.135-.298-.54-1.497.105-3.121 0 0 1.005-.316 3.3 1.209.96-.262 1.98-.392 3-.398 1.02.006 2.04.136 3 .398 2.28-1.525 3.285-1.209 3.285-1.209.645 1.624.24 2.823.12 3.121.765.825 1.23 1.877 1.23 3.164 0 4.53-2.805 5.527-5.475 5.817.42.354.81 1.077.81 2.182 0 1.578-.015 2.846-.015 3.229 0 .309.21.678.825.56C20.565 21.917 24 17.495 24 12.292 24 5.78 18.627.5 12 .5z"
+        ></path></svg
+      >
+       GitHub
+    </ButtonLink>
+  </div>
 </Layout>
 
-<style></style>
+<style>
+  .top {
+    display: grid;
+    gap: 16px;
+  }
+
+  .topButton__github {
+    stroke: hsl(var(--primary-foreground));
+    fill: hsl(var(--primary-foreground));
+  }
+</style>
