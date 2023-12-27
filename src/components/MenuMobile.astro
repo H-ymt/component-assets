@@ -177,6 +177,12 @@ const currentPath = Astro.url.pathname;
     border-radius: var(--radius-lg);
   }
 
+  @media screen and (min-width: 768px) {
+    .menuToggle {
+      display: none;
+    }
+  }
+
   .menuToggle .menuIcons__open,
   .menuToggle.is-active .menuIcons__close {
     opacity: 1;
