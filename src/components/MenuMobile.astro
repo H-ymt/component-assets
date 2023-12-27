@@ -57,9 +57,20 @@ const currentPath = Astro.url.pathname;
     stroke-width="2"
     stroke-linecap="round"
     stroke-linejoin="round"
-    class="menuIcon"
+    class="menuIcon menuToggle__open js-openButton"
     ><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"
     ></circle><circle cx="5" cy="12" r="1"></circle></svg
+  >
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    fill="none"
+    stroke-width="1"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    class="menuIcon menuToggle__close js-closeButton"
+    ><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg
   >
 </button>
 
@@ -67,7 +78,7 @@ const currentPath = Astro.url.pathname;
   .menu {
     display: flex;
     position: fixed;
-    bottom: 68px;
+    bottom: 90px;
     right: 30px;
   }
 
@@ -89,7 +100,6 @@ const currentPath = Astro.url.pathname;
     background: hsl(var(--background) / 0.98);
     box-shadow: 0px 4px 24px 0px hsl(var(--popover-foreground) / 0.1);
     backdrop-filter: blur(8px);
-    overflow: hidden scroll;
     margin-bottom: 12px;
     transition:
       opacity 0.2s ease,
@@ -106,7 +116,8 @@ const currentPath = Astro.url.pathname;
   }
 
   .menuList__item {
-    padding: 8px 4px;
+    padding: 8px 8px;
+    overflow: hidden scroll;
   }
 
   .menuList__title {
@@ -119,7 +130,7 @@ const currentPath = Astro.url.pathname;
 
   .menuList__link {
     padding: 6px 8px;
-    font-size: 14px;
+    font-size: 15px;
     color: hsl(var(--muted-foreground));
     text-decoration: none;
   }
@@ -151,7 +162,7 @@ const currentPath = Astro.url.pathname;
     justify-content: center;
     align-items: center;
     width: 42px;
-    height: 40px;
+    height: 48px;
   }
 
   @media (hover: hover) {
@@ -167,11 +178,11 @@ const currentPath = Astro.url.pathname;
   .menuToggle {
     display: grid;
     position: fixed;
-    bottom: 22px;
+    bottom: 36px;
     right: 30px;
     place-items: center;
-    width: 48px;
-    height: 48px;
+    width: 56px;
+    height: 56px;
     background: hsl(var(--background));
     border: 1px solid hsl(var(--border));
     border-radius: var(--radius-lg);
@@ -183,18 +194,14 @@ const currentPath = Astro.url.pathname;
     }
   }
 
-  .menuToggle .menuIcons__open,
-  .menuToggle.is-active .menuIcons__close {
-    opacity: 1;
-    visibility: visible;
-    width: auto;
+  .menuToggle .menuToggle__open,
+  .menuToggle.is-active .menuToggle__close {
+    display: inline-block;
   }
 
-  .menuToggle.is-active .menuIcons__open,
-  .menuToggle .menuIcons__close {
-    opacity: 0;
-    visibility: hidden;
-    width: 0;
+  .menuToggle.is-active .menuToggle__open,
+  .menuToggle .menuToggle__close {
+    display: none;
   }
 </style>
 
