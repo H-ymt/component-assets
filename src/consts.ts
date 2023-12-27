@@ -4,11 +4,11 @@ export const SITE_DESCRIPTION = "My UI Components assets.";
 export const MENU_LIST = [
   {
     label: "Hamburger Menu",
-    path: "/hamburger-menu",
+    path: "/hamburger-menu/",
   },
   {
     label: "Accordion",
-    path: "/accordion",
+    path: "/accordion/",
   },
   {
     label: "Example",
