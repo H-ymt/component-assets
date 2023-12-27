@@ -1,6 +1,6 @@
 ---
 import "ress";
-import MenuMobile from "../components/MenuMobile/index";
+import MenuMobile from "../components/MenuMobile.astro";
 import GridLayout from "../components/layout/GridLayout.astro";
 import Header from "../components/layout/Header.astro";
 import SideMenu from "../components/layout/SideMenu.astro";
@@ -27,7 +27,6 @@ const { title, description } = Astro.props;
   <body>
     <Header />
     <GridLayout>
-      <!-- <MenuMobile /> -->
       <MenuMobile client:load />
       <aside class="aside">
         <SideMenu />
