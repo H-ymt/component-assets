@@ -78,6 +78,7 @@ const currentPath = Astro.url.pathname;
   .menu {
     display: flex;
     position: fixed;
+    z-index: 1;
     bottom: 90px;
     right: 30px;
   }
@@ -93,8 +94,9 @@ const currentPath = Astro.url.pathname;
     opacity: 0;
     visibility: hidden;
     flex-direction: column;
-    width: 280px;
-    max-height: 280px;
+    width: 88vw;
+    max-width: 400px;
+    max-height: 320px;
     border: 1px solid hsl(var(--border));
     border-radius: var(--radius-md);
     background: hsl(var(--background) / 0.98);
@@ -129,7 +131,7 @@ const currentPath = Astro.url.pathname;
   }
 
   .menuList__link {
-    padding: 6px 8px;
+    padding: 8px 8px;
     font-size: 15px;
     color: hsl(var(--muted-foreground));
     text-decoration: none;
@@ -149,6 +151,9 @@ const currentPath = Astro.url.pathname;
     top: 0;
     padding-left: 4px;
     border-bottom: 1px solid hsl(var(--border));
+    border-top-right-radius: var(--radius-md);
+    border-top-left-radius: var(--radius-md);
+    border
     background: hsl(var(--background) / 0.95);
     backdrop-filter: blur(8px);
   }
@@ -178,6 +183,7 @@ const currentPath = Astro.url.pathname;
   .menuToggle {
     display: grid;
     position: fixed;
+    z-index: 1;
     bottom: 36px;
     right: 30px;
     place-items: center;
