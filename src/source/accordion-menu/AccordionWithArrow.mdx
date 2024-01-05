@@ -1,0 +1,88 @@
+```html
+<div class="accordion">
+  <details class="details">
+    <summary class="summary summary--arrow js-summaryArrow">summary</summary>
+    <div class="details__content">contents</div>
+  </details>
+  <details class="details">
+    <summary class="summary summary--arrow js-summaryArrow">summary</summary>
+    <div class="details__content">contents</div>
+  </details>
+  <details class="details">
+    <summary class="summary summary--arrow js-summaryArrow">summary</summary>
+    <div class="details__content">contents</div>
+  </details>
+</div>
+```
+
+<br />
+
+```css
+.summary::marker,
+.summary::-webkit-details-marker {
+  display: none;
+  content: "";
+}
+
+.accordion {
+  width: min(100%, 460px);
+  display: block;
+  color: hsl(var(--foreground));
+  text-align: left;
+}
+
+.summary {
+  padding: 16px 0;
+}
+
+.summary--arrow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 8px;
+}
+
+.summary--arrow::after {
+  display: inline-block;
+  content: "";
+  right: 0;
+  width: 6px;
+  height: 6px;
+  border-top: 1px solid hsl(var(--foreground));
+  border-right: 1px solid hsl(var(--foreground));
+  transform: rotate(135deg);
+  transition: transform 0.3s ease;
+}
+
+.summary--arrow.is-active::after {
+  transform: rotate(-45deg);
+  transition: transform 0.3s ease;
+}
+
+@media (hover: hover) {
+  .summary:hover {
+    text-decoration: underline;
+  }
+}
+
+.details {
+  border-bottom: 1px solid hsl(var(--border));
+}
+
+.details__content {
+  padding-bottom: 16px;
+  font-size: 14px;
+}
+```
+
+<br />
+
+```js
+const summaryArrows = Array.from(document.querySelectorAll(".js-summaryArrow"));
+
+summaryArrows.map((summaryArrow) => {
+  summaryArrow.addEventListener("click", () => {
+    summaryArrow.classList.toggle("is-active");
+  });
+});
+```

@@ -4,6 +4,7 @@ import DocsHeading from "../components/DocsHeading.astro";
 import { SITE_TITLE } from "../consts";
 import Layout from "../layouts/Layout.astro";
 import AccordionDefault from "../source/accordion-menu/AccordionDefault.mdx";
+import AccordionWithArrow from "../source/accordion-menu/AccordionWithArrow.mdx";
 ---
 
 <Layout title={`${SITE_TITLE} - Accordion`} description="Accordion">
@@ -40,8 +41,34 @@ import AccordionDefault from "../source/accordion-menu/AccordionDefault.mdx";
   </div>
 
   <div>
-    <DocsHeading id="examples">Examples</DocsHeading>
-    <h3>with Arrow Icon</h3>
+    <DocsHeading id="examples">with Arrow Icon</DocsHeading>
+    <Card>
+      <div class="accordion">
+        <details class="details">
+          <summary class="summary summary--arrow js-summaryArrow"
+            >summary</summary
+          >
+          <div class="details__content">contents</div>
+        </details>
+        <details class="details">
+          <summary class="summary summary--arrow js-summaryArrow"
+            >summary</summary
+          >
+          <div class="details__content">contents</div>
+        </details>
+        <details class="details">
+          <summary class="summary summary--arrow js-summaryArrow"
+            >summary</summary
+          >
+          <div class="details__content">contents</div>
+        </details>
+      </div>
+    </Card>
+  </div>
+
+  <div class="code">
+    <DocsHeading id="code">Code</DocsHeading>
+    <AccordionWithArrow />
   </div>
 </Layout>
 
@@ -60,7 +87,31 @@ import AccordionDefault from "../source/accordion-menu/AccordionDefault.mdx";
   }
 
   .summary {
-    padding: 12px 0;
+    padding: 16px 0;
+  }
+
+  .summary--arrow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 8px;
+  }
+
+  .summary--arrow::after {
+    display: inline-block;
+    content: "";
+    right: 0;
+    width: 6px;
+    height: 6px;
+    border-top: 1px solid hsl(var(--foreground));
+    border-right: 1px solid hsl(var(--foreground));
+    transform: rotate(135deg);
+    transition: transform 0.3s ease;
+  }
+
+  .summary--arrow.is-active::after {
+    transform: rotate(-45deg);
+    transition: transform 0.3s ease;
   }
 
   @media (hover: hover) {
@@ -78,3 +129,15 @@ import AccordionDefault from "../source/accordion-menu/AccordionDefault.mdx";
     font-size: 14px;
   }
 </style>
+
+<script>
+  const summaryArrows = Array.from(
+    document.querySelectorAll(".js-summaryArrow"),
+  );
+
+  summaryArrows.map((summaryArrow) => {
+    summaryArrow.addEventListener("click", () => {
+      summaryArrow.classList.toggle("is-active");
+    });
+  });
+</script>
