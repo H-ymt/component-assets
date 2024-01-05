@@ -6,11 +6,11 @@ interface Props {
 const { id } = Astro.props;
 ---
 
-<h2 id={id} class="heading"><slot /></h2>
+<h3 id={id} class="heading"><slot /></h3>
 
 <style>
   .heading {
-    margin: 40px 0 24px;
+    margin: 24px 0 24px;
     padding-bottom: 10px;
     border-bottom: 1px solid hsl(var(--border));
   }
