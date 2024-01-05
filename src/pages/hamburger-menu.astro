@@ -14,10 +14,14 @@ import Layout from "../layouts/Layout.astro";
     <DocsHeading id="preview">Preview</DocsHeading>
     <Card>
       <div class="navContainer">
-        <button type="button" class="hamburgerMenu js-button" aria-label="menu"
-          ><span aria-hidden="true"></span></button
+        <button
+          type="button"
+          class="hamburgerMenu js-button"
+          aria-label="menu"
+          aria-controls="navigation"
+          aria-expanded="false"><span aria-hidden="true"></span></button
         >
-        <nav class="nav js-nav">
+        <nav id="navigation" class="nav js-nav" aria-hidden="true">
           <ul class="navList">
             <li class="navList__item">
               <a class="navList__link" href="/hamburger-menu">Home</a>
@@ -157,5 +161,15 @@ import Layout from "../layouts/Layout.astro";
   toggleButton?.addEventListener("click", () => {
     toggleButton.classList.toggle("is-active");
     nav?.classList.toggle("is-active");
+
+    toggleButton.setAttribute(
+      "aria-expanded",
+      toggleButton.classList.contains("is-active") ? "true" : "false",
+    );
+
+    nav?.setAttribute(
+      "aria-hidden",
+      toggleButton.classList.contains("is-active") ? "false" : "true",
+    );
   });
 </script>

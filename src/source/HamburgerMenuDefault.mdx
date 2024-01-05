@@ -1,0 +1,160 @@
+```html
+<div class="navContainer">
+  <button
+    type="button"
+    class="hamburgerMenu js-button"
+    aria-label="menu"
+    aria-controls="navigation"
+    aria-expanded="false"
+  >
+    <span aria-hidden="true"></span>
+  </button>
+  <nav id="navigation" class="nav js-nav" aria-hidden="true">
+    <ul class="navList">
+      <li class="navList__item">
+        <a class="navList__link" href="/hamburger-menu">Home</a>
+      </li>
+      <li><a class="navList__link" href="/hamburger-menu">About</a></li>
+      <li><a class="navList__link" href="/hamburger-menu">Contact</a></li>
+    </ul>
+  </nav>
+</div>
+```
+
+```css
+.navContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.hamburgerMenu {
+  display: inline-flex;
+  align-items: center;
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  z-index: 1;
+  width: 30px;
+  height: 18px;
+}
+
+.hamburgerMenu span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 1px;
+  background: hsl(var(--foreground));
+  transition: height 0.1s ease;
+}
+
+.hamburgerMenu span::before,
+.hamburgerMenu span::after {
+  display: inline-block;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background: hsl(var(--foreground));
+  transition: transform 0.3s ease;
+}
+
+.hamburgerMenu span::before {
+  top: 0;
+}
+
+.hamburgerMenu span::after {
+  bottom: 0;
+}
+
+.hamburgerMenu.is-active span {
+  height: 0;
+  transition: height 0.1s ease;
+}
+
+.hamburgerMenu.is-active span::before,
+.hamburgerMenu.is-active span::after {
+  top: 50%;
+  transform: translateY(-50%);
+  transition: transform 0.3s ease;
+}
+
+.hamburgerMenu.is-active span::before {
+  transform: rotate(45deg);
+  transition: transform 0.3s ease;
+}
+
+.hamburgerMenu.is-active span::after {
+  transform: rotate(-45deg);
+  transition: transform 0.3s ease;
+}
+
+.nav {
+  display: flex;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 0;
+  height: 0;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition:
+    opacity 0.2s ease,
+    visibility 0.2s ease,
+    max-height 0.2s ease;
+  transform-origin: center center;
+}
+
+.nav.is-active {
+  opacity: 1;
+  visibility: visible;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: hsl(var(--muted));
+  transform-origin: center center;
+}
+
+.navList {
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+}
+
+.nav.is-active .navList {
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity 0.2s ease,
+    visibility 0.2s ease;
+}
+
+.navList__link {
+  color: hsl(var(--foreground));
+  text-decoration: none;
+}
+```
+
+```js
+const toggleButton = document.querySelector(".js-button");
+const nav = document.querySelector(".js-nav");
+
+toggleButton?.addEventListener("click", () => {
+  toggleButton.classList.toggle("is-active");
+  nav?.classList.toggle("is-active");
+
+  toggleButton.setAttribute(
+    "aria-expanded",
+    toggleButton.classList.contains("is-active") ? "true" : "false",
+  );
+
+  nav?.setAttribute(
+    "aria-hidden",
+    toggleButton.classList.contains("is-active") ? "false" : "true",
+  );
+});
+```
