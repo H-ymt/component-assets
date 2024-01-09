@@ -1,0 +1,84 @@
+---
+import Card from "../components/Card.astro";
+import DocsHeading from "../components/DocsHeading.astro";
+import ModalDefault from "../source/modal/ModalDefault.mdx";
+import { SITE_TITLE } from "../consts";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title={`${SITE_TITLE} - Modal`} description="Modal">
+  <h1>Modal</h1>
+  <p>
+    元のウィンドウの上に別で表示されるウィンドウのこと。指定された操作を完了・キャンセルするまで他のウィンドウを操作できない。
+  </p>
+
+  <DocsHeading id="preview">Preview</DocsHeading>
+  <Card>
+    <button type="button" class="button js-open">Open</button>
+    <dialog class="dialog js-dialog">
+      <div class="modalContents">
+        <p>Modal contents</p>
+        <button type="button" class="button js-close">Close</button>
+      </div>
+    </dialog>
+  </Card>
+
+  <DocsHeading id="code">Code</DocsHeading>
+  <ModalDefault />
+
+  <style>
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 120px;
+      padding: 6px 8px;
+      border: 1px solid hsl(var(--foreground));
+      border-radius: var(--radius-md);
+      color: hsl(var(--secondary));
+      background: hsl(var(--secondary-foreground) / 0.95);
+      transition: background 0.3s ease;
+    }
+
+    @media (hover: hover) {
+      .button:hover {
+        background: hsl(var(--secondary-foreground));
+        transition: background 0.3s ease;
+      }
+    }
+
+    .dialog {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border: 1px solid hsl(var(--border));
+    }
+
+    .dialog::backdrop {
+      backdrop-filter: blur(2px);
+    }
+
+    .modalContents {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      gap: 20px;
+      padding: 48px;
+    }
+  </style>
+
+  <script>
+    const openButton = document.querySelector<HTMLButtonElement>(".js-open");
+    const closeButton = document.querySelector<HTMLButtonElement>(".js-close");
+    const dialog = document.querySelector<HTMLDialogElement>(".js-dialog");
+
+    openButton?.addEventListener("click", () => {
+      dialog?.showModal();
+    });
+
+    closeButton?.addEventListener("click", () => {
+      dialog?.close();
+    });
+  </script>
+</Layout>

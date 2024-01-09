@@ -1,0 +1,69 @@
+```html
+<button type="button" class="button js-open">Open</button>
+<dialog class="dialog js-dialog">
+  <div class="modalContents">
+    <p>Modal contents</p>
+    <button type="button" class="button js-close">Close</button>
+  </div>
+</dialog>
+```
+
+<br />
+
+```css
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  padding: 6px 8px;
+  border: 1px solid hsl(var(--foreground));
+  border-radius: var(--radius-md);
+  color: hsl(var(--secondary));
+  background: hsl(var(--secondary-foreground) / 0.95);
+  transition: background 0.3s ease;
+}
+
+@media (hover: hover) {
+  .button:hover {
+    background: hsl(var(--secondary-foreground));
+    transition: background 0.3s ease;
+  }
+}
+
+.dialog {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid hsl(var(--border));
+}
+
+.dialog::backdrop {
+  backdrop-filter: blur(2px);
+}
+
+.modalContents {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  padding: 48px;
+}
+```
+
+<br />
+
+```js
+const openButton = document.querySelector(".js-open");
+const closeButton = document.querySelector(".js-close");
+const dialog = document.querySelector(".js-dialog");
+
+openButton?.addEventListener("click", () => {
+  dialog?.showModal();
+});
+
+closeButton?.addEventListener("click", () => {
+  dialog?.close();
+});
+```
